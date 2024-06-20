@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator</title>
+<style>
+.calculator {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+}
+
+button{
+    padding: 10px;
+    background-color:babypink;
+    color:black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:pink;
+}
+
+#output {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    
+    
+}
+    div{
+        background-image: url(https://climate.esa.int/media/images/Sea-State-CCI_192.2e16d0ba.fill-600x314-c100.format-jpeg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: scroll;
+        padding: 20px;
+        border: 2px solid #000;
+    }
+    
+</style>
+</head>
+<body>
+<div class="calculator">
+    <input type="text" id="input" placeholder="Enter expression">
+    <div class="buttons">
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button onclick="appendValue('+')">+</button>
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button onclick="appendValue('-')">-</button>
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button onclick="appendValue('*')">*</button>
+        <button onclick="appendValue('0')">0</button>
+        
+        <button onclick="reset()">Reset</button>
+        <button onclick="appendValue('/')">/</button>
+       <button onclick="calculate()">=</button>
+    </div>
+    <hr>
+    <div id="output" ></div>
+   </div> 
+</div>
+
+<script>
+function appendValue(value) {
+    document.getElementById('input').value += value;
+}
+
+function calculate() {
+    let input = document.getElementById('input').value;
+    let result = eval(input);
+    document.getElementById('output').innerHTML = "Result: " + result;
+}
+
+function reset() {
+    document.getElementById('input').value = '';
+    document.getElementById('output').innerHTML = '';
+}
+</script>
+
+</body>
+</html>
